@@ -22,6 +22,16 @@
 		401F5DD22ABFF79C00D7EA26 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 401F5DD12ABFF79C00D7EA26 /* GoogleService-Info.plist */; };
 		401F5DD42ABFFD9D00D7EA26 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401F5DD32ABFFD9D00D7EA26 /* SignUpView.swift */; };
 		401F5DD72AC061F100D7EA26 /* LocalUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401F5DD62AC061F100D7EA26 /* LocalUser.swift */; };
+		404E31692AC50E9200F9AA72 /* AddBudgetsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404E31682AC50E9200F9AA72 /* AddBudgetsViewModel.swift */; };
+		404E316B2AC513AC00F9AA72 /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404E316A2AC513AC00F9AA72 /* DashboardViewModel.swift */; };
+		404E316D2AC5181C00F9AA72 /* AddBudgetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404E316C2AC5181C00F9AA72 /* AddBudgetsView.swift */; };
+		404E31702AC53C3200F9AA72 /* Handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404E316F2AC53C3200F9AA72 /* Handlers.swift */; };
+		40BA72A52AC2B4710018E00D /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BA72A42AC2B4710018E00D /* Categories.swift */; };
+		40BA72A72AC2B6B50018E00D /* Budget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BA72A62AC2B6B40018E00D /* Budget.swift */; };
+		40FC4DFF2AC5AD70006FE822 /* DropdownButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FC4DFE2AC5AD70006FE822 /* DropdownButton.swift */; };
+		40FC4E012AC5B09F006FE822 /* AddTransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FC4E002AC5B09F006FE822 /* AddTransactionViewModel.swift */; };
+		40FC4E042AC5B378006FE822 /* AddTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FC4E032AC5B378006FE822 /* AddTransactionView.swift */; };
+		40FC4E062AC5BB2C006FE822 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FC4E052AC5BB2C006FE822 /* Transaction.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +46,16 @@
 		401F5DD12ABFF79C00D7EA26 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		401F5DD32ABFFD9D00D7EA26 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		401F5DD62AC061F100D7EA26 /* LocalUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalUser.swift; sourceTree = "<group>"; };
+		404E31682AC50E9200F9AA72 /* AddBudgetsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBudgetsViewModel.swift; sourceTree = "<group>"; };
+		404E316A2AC513AC00F9AA72 /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
+		404E316C2AC5181C00F9AA72 /* AddBudgetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBudgetsView.swift; sourceTree = "<group>"; };
+		404E316F2AC53C3200F9AA72 /* Handlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Handlers.swift; sourceTree = "<group>"; };
+		40BA72A42AC2B4710018E00D /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
+		40BA72A62AC2B6B40018E00D /* Budget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Budget.swift; sourceTree = "<group>"; };
+		40FC4DFE2AC5AD70006FE822 /* DropdownButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownButton.swift; sourceTree = "<group>"; };
+		40FC4E002AC5B09F006FE822 /* AddTransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionViewModel.swift; sourceTree = "<group>"; };
+		40FC4E032AC5B378006FE822 /* AddTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionView.swift; sourceTree = "<group>"; };
+		40FC4E052AC5BB2C006FE822 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +93,7 @@
 		401F5DAB2ABFEC1700D7EA26 /* AqeelAhamed-CW-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				404E316E2AC53C2400F9AA72 /* Helpers */,
 				401F5DD52AC061DE00D7EA26 /* Models */,
 				401F5DD12ABFF79C00D7EA26 /* GoogleService-Info.plist */,
 				401F5DC32ABFF10C00D7EA26 /* ViewModels */,
@@ -96,6 +117,8 @@
 		401F5DBA2ABFF05F00D7EA26 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				40FC4E022AC5B360006FE822 /* AddTransaction */,
+				404E31672AC50E7900F9AA72 /* AddBudgets */,
 				401F5DBE2ABFF09B00D7EA26 /* Home */,
 				401F5DBD2ABFF08100D7EA26 /* Auth */,
 			);
@@ -122,7 +145,10 @@
 		401F5DC32ABFF10C00D7EA26 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				404E31682AC50E9200F9AA72 /* AddBudgetsViewModel.swift */,
 				401F5DC42ABFF11D00D7EA26 /* AuthenticationViewModel.swift */,
+				404E316A2AC513AC00F9AA72 /* DashboardViewModel.swift */,
+				40FC4E002AC5B09F006FE822 /* AddTransactionViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -131,8 +157,36 @@
 			isa = PBXGroup;
 			children = (
 				401F5DD62AC061F100D7EA26 /* LocalUser.swift */,
+				40BA72A42AC2B4710018E00D /* Categories.swift */,
+				40BA72A62AC2B6B40018E00D /* Budget.swift */,
+				40FC4E052AC5BB2C006FE822 /* Transaction.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		404E31672AC50E7900F9AA72 /* AddBudgets */ = {
+			isa = PBXGroup;
+			children = (
+				404E316C2AC5181C00F9AA72 /* AddBudgetsView.swift */,
+			);
+			path = AddBudgets;
+			sourceTree = "<group>";
+		};
+		404E316E2AC53C2400F9AA72 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				404E316F2AC53C3200F9AA72 /* Handlers.swift */,
+				40FC4DFE2AC5AD70006FE822 /* DropdownButton.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		40FC4E022AC5B360006FE822 /* AddTransaction */ = {
+			isa = PBXGroup;
+			children = (
+				40FC4E032AC5B378006FE822 /* AddTransactionView.swift */,
+			);
+			path = AddTransaction;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,12 +271,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				401F5DC02ABFF0B300D7EA26 /* DashboardView.swift in Sources */,
+				404E31702AC53C3200F9AA72 /* Handlers.swift in Sources */,
+				40FC4DFF2AC5AD70006FE822 /* DropdownButton.swift in Sources */,
+				404E316D2AC5181C00F9AA72 /* AddBudgetsView.swift in Sources */,
 				401F5DC52ABFF11D00D7EA26 /* AuthenticationViewModel.swift in Sources */,
+				40BA72A52AC2B4710018E00D /* Categories.swift in Sources */,
 				401F5DAF2ABFEC1700D7EA26 /* ContentView.swift in Sources */,
+				40FC4E062AC5BB2C006FE822 /* Transaction.swift in Sources */,
+				404E316B2AC513AC00F9AA72 /* DashboardViewModel.swift in Sources */,
 				401F5DC22ABFF0CA00D7EA26 /* LoginView.swift in Sources */,
+				40BA72A72AC2B6B50018E00D /* Budget.swift in Sources */,
 				401F5DD72AC061F100D7EA26 /* LocalUser.swift in Sources */,
 				401F5DD42ABFFD9D00D7EA26 /* SignUpView.swift in Sources */,
 				401F5DAD2ABFEC1700D7EA26 /* AqeelAhamed_CW_iOSApp.swift in Sources */,
+				40FC4E042AC5B378006FE822 /* AddTransactionView.swift in Sources */,
+				40FC4E012AC5B09F006FE822 /* AddTransactionViewModel.swift in Sources */,
+				404E31692AC50E9200F9AA72 /* AddBudgetsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

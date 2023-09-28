@@ -23,7 +23,8 @@ struct LoginView: View {
                     .frame(height: 40)
                     .textInputAutocapitalization(.never)
                 
-                SecureField("Password", text: $viewModel.password)       .font(.system(size: 15))
+                SecureField("Password", text: $viewModel.password)
+                    .font(.system(size: 15))
                     .textFieldStyle(OutlinedTextFieldStyle())
                     .font(.headline)
                     .cornerRadius(10)
