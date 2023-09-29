@@ -9,7 +9,8 @@ import Foundation
 import FirebaseFirestoreSwift
 
 struct TransactionModel: Identifiable, Codable {
-    @DocumentID var id: String?
+    var id: String
+    var userId:String
     var title: String
     var amount: String
     var transactionType: String
@@ -20,6 +21,7 @@ struct TransactionModel: Identifiable, Codable {
     
     enum CodingKeys: String, CodingKey {
         case id
+        case userId
         case title
         case amount
         case transactionType

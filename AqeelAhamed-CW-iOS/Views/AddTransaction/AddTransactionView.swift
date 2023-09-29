@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AddTransactionView: View {
     @StateObject var viewModel: AddTransactionViewModel = AddTransactionViewModel()
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     let typeOptions = [
         DropdownOption(key: "Income", val: "Income"),
@@ -28,7 +29,7 @@ struct AddTransactionView: View {
                     .textInputAutocapitalization(.never)
                     .padding(.top,20)
                 
-                TextField("Amount", text: $viewModel.transaction.title)
+                TextField("Amount", text: $viewModel.transaction.amount)
                     .font(.system(size: 15))
                     .textFieldStyle(OutlinedTextFieldStyle())
                     .font(.headline)
@@ -40,13 +41,23 @@ struct AddTransactionView: View {
                 
                 DropdownButton(shouldShowDropdown:  $viewModel.showTypeDrop, displayText: $viewModel.transaction.transactionType,
                                options: typeOptions, mainColor: Color.black,
-                               backgroundColor: Color.gray.opacity(0.1), cornerRadius: 4, buttonHeight: 50) { key in
+                               backgroundColor: Color.gray.opacity(0.05), cornerRadius: 4, buttonHeight: 50) { key in
                     let selectedObj = typeOptions.filter({ $0.key == key }).first
                     if let object = selectedObj {
                         viewModel.transaction.transactionType = object.val
-                        viewModel.selectedTransactionType = key
                     }
                     viewModel.showTypeDrop = false
+                }.padding(.top,10)
+                
+                DropdownButton(shouldShowDropdown: $viewModel.showTagDrop, displayText: $viewModel.transaction.category.name ,
+                               options: viewModel.categoryDropdowns, mainColor: Color.black,
+                               backgroundColor: Color.gray.opacity(0.05), cornerRadius: 4, buttonHeight: 50) { key in
+                    let selectedObj = viewModel.allCategories.categories.filter({ $0.id == Int(key) }).first
+                    if let object = selectedObj {
+                        viewModel.tagTitle = object.name
+                        viewModel.transaction.category = object
+                    }
+                    viewModel.showTagDrop = false
                 }.padding(.top,10)
                 
                 HStack {
@@ -71,7 +82,11 @@ struct AddTransactionView: View {
                     .padding(.top,10)
                 
                 Button(action: {
-                  
+                    viewModel.addData { status in
+                        if(status){
+                            self.presentationMode.wrappedValue.dismiss()
+                        }
+                    }
                 }) {
                     Text("Add Transaction")
                         .font(.system(size: 14))
@@ -81,8 +96,15 @@ struct AddTransactionView: View {
                 .background(Color.blue)
                 .cornerRadius(40)
                 .shadow(radius: 6)
-                .foregroundColor(Color.white)
-            }.navigationTitle("Add Transaction")
+                .foregroundColor(Color.white).alert(isPresented: $viewModel.showAlert) {
+                    Alert(
+                        title: Text("Error"),
+                        message: Text(viewModel.alertMsg)
+                    );
+                }
+            }.onAppear(perform: {
+                viewModel.getCategories()
+            }).navigationTitle("Add Transaction")
         }
     }
 }

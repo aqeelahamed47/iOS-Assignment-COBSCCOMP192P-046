@@ -28,6 +28,13 @@
 		404E31702AC53C3200F9AA72 /* Handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404E316F2AC53C3200F9AA72 /* Handlers.swift */; };
 		40BA72A52AC2B4710018E00D /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BA72A42AC2B4710018E00D /* Categories.swift */; };
 		40BA72A72AC2B6B50018E00D /* Budget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BA72A62AC2B6B40018E00D /* Budget.swift */; };
+		40F407E32AC69FA80061F57F /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F407E22AC69FA80061F57F /* Extentions.swift */; };
+		40F407EA2AC6A3BA0061F57F /* ViewTransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F407E92AC6A3BA0061F57F /* ViewTransactionViewModel.swift */; };
+		40F407ED2AC6A3EE0061F57F /* ViewTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F407EC2AC6A3EE0061F57F /* ViewTransactionView.swift */; };
+		40F407F02AC6AF880061F57F /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 40F407EF2AC6AF880061F57F /* DGCharts */; };
+		40F407F22AC6AFB30061F57F /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F407F12AC6AFB30061F57F /* ChartView.swift */; };
+		40F407F52AC6B62B0061F57F /* ChartFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F407F42AC6B62B0061F57F /* ChartFilterView.swift */; };
+		40F407F72AC6B6720061F57F /* ChartFilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F407F62AC6B6720061F57F /* ChartFilterViewModel.swift */; };
 		40FC4DFF2AC5AD70006FE822 /* DropdownButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FC4DFE2AC5AD70006FE822 /* DropdownButton.swift */; };
 		40FC4E012AC5B09F006FE822 /* AddTransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FC4E002AC5B09F006FE822 /* AddTransactionViewModel.swift */; };
 		40FC4E042AC5B378006FE822 /* AddTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FC4E032AC5B378006FE822 /* AddTransactionView.swift */; };
@@ -52,6 +59,12 @@
 		404E316F2AC53C3200F9AA72 /* Handlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Handlers.swift; sourceTree = "<group>"; };
 		40BA72A42AC2B4710018E00D /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		40BA72A62AC2B6B40018E00D /* Budget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Budget.swift; sourceTree = "<group>"; };
+		40F407E22AC69FA80061F57F /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
+		40F407E92AC6A3BA0061F57F /* ViewTransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTransactionViewModel.swift; sourceTree = "<group>"; };
+		40F407EC2AC6A3EE0061F57F /* ViewTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTransactionView.swift; sourceTree = "<group>"; };
+		40F407F12AC6AFB30061F57F /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
+		40F407F42AC6B62B0061F57F /* ChartFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartFilterView.swift; sourceTree = "<group>"; };
+		40F407F62AC6B6720061F57F /* ChartFilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartFilterViewModel.swift; sourceTree = "<group>"; };
 		40FC4DFE2AC5AD70006FE822 /* DropdownButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownButton.swift; sourceTree = "<group>"; };
 		40FC4E002AC5B09F006FE822 /* AddTransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionViewModel.swift; sourceTree = "<group>"; };
 		40FC4E032AC5B378006FE822 /* AddTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionView.swift; sourceTree = "<group>"; };
@@ -67,6 +80,7 @@
 				401F5DC82ABFF28300D7EA26 /* FirebaseAuth in Frameworks */,
 				401F5DCC2ABFF28300D7EA26 /* FirebaseFirestore in Frameworks */,
 				401F5DD02ABFF28300D7EA26 /* FirebaseStorage in Frameworks */,
+				40F407F02AC6AF880061F57F /* DGCharts in Frameworks */,
 				401F5DCE2ABFF28300D7EA26 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -117,6 +131,8 @@
 		401F5DBA2ABFF05F00D7EA26 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				40F407F32AC6B60E0061F57F /* ChartFilter */,
+				40F407EB2AC6A3D30061F57F /* ViewTransaction */,
 				40FC4E022AC5B360006FE822 /* AddTransaction */,
 				404E31672AC50E7900F9AA72 /* AddBudgets */,
 				401F5DBE2ABFF09B00D7EA26 /* Home */,
@@ -145,10 +161,12 @@
 		401F5DC32ABFF10C00D7EA26 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				404E31682AC50E9200F9AA72 /* AddBudgetsViewModel.swift */,
-				401F5DC42ABFF11D00D7EA26 /* AuthenticationViewModel.swift */,
-				404E316A2AC513AC00F9AA72 /* DashboardViewModel.swift */,
-				40FC4E002AC5B09F006FE822 /* AddTransactionViewModel.swift */,
+				40F407E82AC6A32E0061F57F /* ViewTransaction */,
+				40F407E72AC6A31C0061F57F /* Auth */,
+				40F407E62AC6A3160061F57F /* Home */,
+				40F407E52AC6A30C0061F57F /* AddBudgets */,
+				40F407E42AC6A3020061F57F /* AddTransaction */,
+				40F407F62AC6B6720061F57F /* ChartFilterViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -177,8 +195,66 @@
 			children = (
 				404E316F2AC53C3200F9AA72 /* Handlers.swift */,
 				40FC4DFE2AC5AD70006FE822 /* DropdownButton.swift */,
+				40F407E22AC69FA80061F57F /* Extentions.swift */,
+				40F407F12AC6AFB30061F57F /* ChartView.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		40F407E42AC6A3020061F57F /* AddTransaction */ = {
+			isa = PBXGroup;
+			children = (
+				40FC4E002AC5B09F006FE822 /* AddTransactionViewModel.swift */,
+			);
+			path = AddTransaction;
+			sourceTree = "<group>";
+		};
+		40F407E52AC6A30C0061F57F /* AddBudgets */ = {
+			isa = PBXGroup;
+			children = (
+				404E31682AC50E9200F9AA72 /* AddBudgetsViewModel.swift */,
+			);
+			path = AddBudgets;
+			sourceTree = "<group>";
+		};
+		40F407E62AC6A3160061F57F /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				404E316A2AC513AC00F9AA72 /* DashboardViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		40F407E72AC6A31C0061F57F /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				401F5DC42ABFF11D00D7EA26 /* AuthenticationViewModel.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		40F407E82AC6A32E0061F57F /* ViewTransaction */ = {
+			isa = PBXGroup;
+			children = (
+				40F407E92AC6A3BA0061F57F /* ViewTransactionViewModel.swift */,
+			);
+			path = ViewTransaction;
+			sourceTree = "<group>";
+		};
+		40F407EB2AC6A3D30061F57F /* ViewTransaction */ = {
+			isa = PBXGroup;
+			children = (
+				40F407EC2AC6A3EE0061F57F /* ViewTransactionView.swift */,
+			);
+			path = ViewTransaction;
+			sourceTree = "<group>";
+		};
+		40F407F32AC6B60E0061F57F /* ChartFilter */ = {
+			isa = PBXGroup;
+			children = (
+				40F407F42AC6B62B0061F57F /* ChartFilterView.swift */,
+			);
+			path = ChartFilter;
 			sourceTree = "<group>";
 		};
 		40FC4E022AC5B360006FE822 /* AddTransaction */ = {
@@ -211,6 +287,7 @@
 				401F5DCB2ABFF28300D7EA26 /* FirebaseFirestore */,
 				401F5DCD2ABFF28300D7EA26 /* FirebaseFirestoreSwift */,
 				401F5DCF2ABFF28300D7EA26 /* FirebaseStorage */,
+				40F407EF2AC6AF880061F57F /* DGCharts */,
 			);
 			productName = "AqeelAhamed-CW-iOS";
 			productReference = 401F5DA92ABFEC1700D7EA26 /* AqeelAhamed-CW-iOS.app */;
@@ -242,6 +319,7 @@
 			mainGroup = 401F5DA02ABFEC1700D7EA26;
 			packageReferences = (
 				401F5DC62ABFF28300D7EA26 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				40F407EE2AC6AF880061F57F /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = 401F5DAA2ABFEC1700D7EA26 /* Products */;
 			projectDirPath = "";
@@ -274,16 +352,22 @@
 				404E31702AC53C3200F9AA72 /* Handlers.swift in Sources */,
 				40FC4DFF2AC5AD70006FE822 /* DropdownButton.swift in Sources */,
 				404E316D2AC5181C00F9AA72 /* AddBudgetsView.swift in Sources */,
+				40F407ED2AC6A3EE0061F57F /* ViewTransactionView.swift in Sources */,
 				401F5DC52ABFF11D00D7EA26 /* AuthenticationViewModel.swift in Sources */,
 				40BA72A52AC2B4710018E00D /* Categories.swift in Sources */,
 				401F5DAF2ABFEC1700D7EA26 /* ContentView.swift in Sources */,
 				40FC4E062AC5BB2C006FE822 /* Transaction.swift in Sources */,
+				40F407F72AC6B6720061F57F /* ChartFilterViewModel.swift in Sources */,
+				40F407E32AC69FA80061F57F /* Extentions.swift in Sources */,
 				404E316B2AC513AC00F9AA72 /* DashboardViewModel.swift in Sources */,
 				401F5DC22ABFF0CA00D7EA26 /* LoginView.swift in Sources */,
+				40F407EA2AC6A3BA0061F57F /* ViewTransactionViewModel.swift in Sources */,
+				40F407F52AC6B62B0061F57F /* ChartFilterView.swift in Sources */,
 				40BA72A72AC2B6B50018E00D /* Budget.swift in Sources */,
 				401F5DD72AC061F100D7EA26 /* LocalUser.swift in Sources */,
 				401F5DD42ABFFD9D00D7EA26 /* SignUpView.swift in Sources */,
 				401F5DAD2ABFEC1700D7EA26 /* AqeelAhamed_CW_iOSApp.swift in Sources */,
+				40F407F22AC6AFB30061F57F /* ChartView.swift in Sources */,
 				40FC4E042AC5B378006FE822 /* AddTransactionView.swift in Sources */,
 				40FC4E012AC5B09F006FE822 /* AddTransactionViewModel.swift in Sources */,
 				404E31692AC50E9200F9AA72 /* AddBudgetsViewModel.swift in Sources */,
@@ -495,6 +579,14 @@
 				kind = branch;
 			};
 		};
+		40F407EE2AC6AF880061F57F /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -522,6 +614,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 401F5DC62ABFF28300D7EA26 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		40F407EF2AC6AF880061F57F /* DGCharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 40F407EE2AC6AF880061F57F /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = DGCharts;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -42,6 +42,11 @@ struct AddBudgetsView: View {
                     Spacer()
                 }.onAppear {
                     viewModel.subscribe()
+                }.alert(isPresented: $viewModel.showAlert) {
+                    Alert(
+                        title: Text("Error"),
+                        message: Text(viewModel.errorText)
+                    );
                 }
             }
         }.navigationTitle("Add budget for categories").navigationBarBackButtonHidden(true)

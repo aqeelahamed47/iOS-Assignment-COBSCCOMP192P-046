@@ -35,6 +35,27 @@ class AddBudgetViewModel: ObservableObject {
     
     func addData(completion: @escaping CompletionHandler) {
         do {
+            
+            for item in categories.categories {
+                if item.budget.isEmpty || item.budget == "0" {
+                    errorText = "Enter Amount";
+                    showAlert = true
+                    return
+                }
+                guard let amount = Double(item.budget) else {
+                    errorText = "Enter valid number";
+                    showAlert = true
+                    return
+                }
+                guard amount >= 0 else {
+                    errorText = "Amount can't be negative";
+                    showAlert = true
+                    return
+                }
+            }
+          
+           
+            
             var totalPrice = 0.0
             for item in categories.categories {
                 totalPrice +=  Double(item.budget)!
@@ -76,6 +97,8 @@ class AddBudgetViewModel: ObservableObject {
                 self.categories = document
             }
         }
+        
+    
     }
     
     func getUserFromFirebase() {

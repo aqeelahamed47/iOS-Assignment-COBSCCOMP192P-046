@@ -10,18 +10,29 @@ import Firebase
 import FirebaseFirestore
 import Combine
 
-class DashboardViewModel: ObservableObject {
+enum FilterByDate: String {
+    case all
+    case week
+    case month
+}
+
+class DashboardViewModel: ObservableObject,Identifiable {
     
     @Published var user: LocalUser
     @Published var firebaseUser: User?
     
     @Published var modified = false
+    @Published var isNoTransactions = true
     @Published var errorText: String = ""
     @Published var showAlert: Bool = false
     @Published var navBudget: Bool = false
     @Published var totalBudget: TotalBudget = TotalBudget(budget: "")
-    
+    @Published var transactions = [TransactionModel]()
+    @Published var income: String = ""
+    @Published var expense: String = ""
     private var listenerRegistration: ListenerRegistration?
+    private var listenerRegistrationExpenses: ListenerRegistration?
+    @Published var filter: FilterByDate = .all
     
     private var db = Firestore.firestore()
     
@@ -61,6 +72,25 @@ class DashboardViewModel: ObservableObject {
             listenerRegistration?.remove()
             listenerRegistration = nil
         }
+        
+        if listenerRegistrationExpenses != nil {
+            listenerRegistrationExpenses?.remove()
+            listenerRegistrationExpenses = nil
+        }
+        
+    }
+    
+    func getDateByFilter() -> Date{
+        switch filter {
+        case .all:
+            return Date().getLastLongDay()!
+        case .week:
+            return Date().getLast7Day()!
+        case .month:
+            return Date().getLast30Day()!
+        default:
+            return Date().getLastLongDay()!
+        }
     }
     
     func subscribe() {
@@ -73,7 +103,36 @@ class DashboardViewModel: ObservableObject {
                 self.totalBudget = document
             }
         }
+        
+        db.collection("transations").whereField("userId", isEqualTo: Auth.auth().currentUser!.uid).whereField("createdAt",isGreaterThan: getDateByFilter() ).order(by: "createdAt", descending: true).addSnapshotListener { (querySnapshot, error) in
+            guard let documents = querySnapshot?.documents else {
+                self.isNoTransactions = true
+                return
+            }
+      
+            self.transactions = documents.compactMap { queryDocumentSnapshot in
+                try? queryDocumentSnapshot.data(as: TransactionModel.self)
+            }
+            
+            
+            var incomeTotal = 0.0
+            var expenseTotal = 0.0
+            
+            for item in self.transactions {
+                if(item.transactionType == "Income"){
+                    incomeTotal += Double(item.amount)!
+                }else{
+                    expenseTotal +=  Double(item.amount)!
+                }
+            }
+            self.income = "\(incomeTotal)"
+            self.expense = "\(expenseTotal)"
+            self.isNoTransactions = false
+        }
+        
     }
     
 }
+
+
 
