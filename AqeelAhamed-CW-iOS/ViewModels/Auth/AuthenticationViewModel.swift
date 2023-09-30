@@ -52,8 +52,27 @@ class AuthenticationViewModel: ObservableObject {
         }
     }
     
+    func validateEmail(enteredEmail:String) -> Bool {
+        
+        let emailFormat = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailFormat)
+        return emailPredicate.evaluate(with: enteredEmail)
+        
+    }
     
     func signIn() {
+        
+        if email.isEmpty || email == "" || !validateEmail(enteredEmail: email){
+            errorText = "Enter Valid Email";
+            showAlert = true
+            return
+        }
+        if password.isEmpty || password == "" {
+            errorText = "Enter Password";
+            showAlert = true
+            return
+        }
+        
         Auth.auth().signIn(withEmail: email, password: password) { [unowned self] (_, error) in
             if let _ = error {
                 errorText = "Please check the login credentials"
@@ -67,6 +86,24 @@ class AuthenticationViewModel: ObservableObject {
     
     
     func signUp() {
+        
+        if name.isEmpty || name == "" {
+            errorText = "Enter Valid Name";
+            showAlert = true
+            return
+        }
+        
+        if email.isEmpty || email == "" || !validateEmail(enteredEmail: email){
+            errorText = "Enter Valid Email";
+            showAlert = true
+            return
+        }
+        if password.isEmpty || password == "" {
+            errorText = "Enter Password";
+            showAlert = true
+            return
+        }
+        
         Auth.auth().createUser(withEmail: email, password: password) {authResult, error in
             if let _ = error {
                 self.errorText = "Please check the data and try again"
@@ -97,7 +134,7 @@ class AuthenticationViewModel: ObservableObject {
         }
     }
     
-    func subscribe() { 
+    func subscribe() {
         if handle == nil {
             handle = Auth.auth().addStateDidChangeListener({ (auth, user) in
                 if let userdata = user {
@@ -111,7 +148,7 @@ class AuthenticationViewModel: ObservableObject {
     }
     
     
-    func signOut() { 
+    func signOut() {
         do {
             // 2
             try Auth.auth().signOut()

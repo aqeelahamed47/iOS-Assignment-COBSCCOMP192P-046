@@ -173,6 +173,15 @@ struct DashboardView: View {
                         
                         Image(systemName: "text.badge.checkmark").foregroundColor(Color.black)
                     }
+                    
+                    Button(action: {
+                        self.viewModelAuth.signOut()
+                    }) {
+                        
+                        Image(systemName: "power").foregroundColor(Color.red)
+                    }
+                    
+                    
                 }
                 
                 .navigationDestination(
